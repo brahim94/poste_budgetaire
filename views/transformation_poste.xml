@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+    
+    <record id='transformation_poste_view_form' model='ir.ui.view'>
+            <field name="name">transformation.poste.form</field>
+            <field name="model">transformation.poste</field>
+            <field name="arch" type="xml">
+               <form>
+                     <sheet>
+                     <group>
+                        <group>
+                           <field name="fiscalyear_tranformation_id" />
+                           <!-- <field name="company_id"/> -->
+                        </group>
+                        <group colspan="4">
+                           <field name="transformation_line_ids" nolabel="1" colspan="4">
+                              <tree editable="bottom">
+                                 <field name="employee_id"/>
+                                 <field name="corps_transformation_id"/>
+                                 <field name="grade_transformation_id"/>
+                                 <field name="echelon_transformation_id"/>
+                                 <field name="unite_transformation_id"/>
+                                 <field name="job_transformation_id"/>
+                                 <field name="parent_transformation_id"/>
+                              </tree>
+                           </field>
+                        </group>
+                     </group>
+                     </sheet>
+               </form>
+            </field>
+      </record>
+
+      <record id="view_transformation_poste_tree" model="ir.ui.view">
+         <field name="name">transformation.poste.tree</field>
+         <field name="model">transformation.poste</field>
+         <field name="arch" type="xml">
+            <tree string="Transformation en poste">
+               <field name="fiscalyear_tranformation_id"/>
+            </tree>
+         </field>
+      </record>
+      
+      <record id="action_transformation_poste" model="ir.actions.act_window">
+         <field name="name">Transformation en poste</field>
+         <field name="res_model">transformation.poste</field>
+         <field name="view_mode">tree,form</field>
+         <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Creez vos enregistrements de transformation en poste de vos employés.</p>
+         </field>
+      </record>
+    
+      <menuitem id="menu_hr_transformation_poste" parent="menu_loi_cadre_config" name="Transformation en poste" action="action_transformation_poste" sequence="2" />
+
+    </data>
+</odoo>
